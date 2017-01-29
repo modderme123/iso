@@ -1,0 +1,8 @@
+.DS_Store
+target/
+*.swp
+.ensime
+.ensime_cache
+.idea
+native/
+**/*.log
