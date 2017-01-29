@@ -1,7 +1,7 @@
 package example
 
 import org.scalajs.dom
-import org.scalajs.dom.{html, MouseEvent}
+import org.scalajs.dom.{html, Event, MouseEvent}
 
 import scala.math._
 import scala.scalajs.js
@@ -29,7 +29,7 @@ object Iso extends js.JSApp {
       Path(Seq(vertices(5), vertices(4), vertices(7), vertices(6)), randomColor), // Rear-Left
       Path(Seq(vertices(4), vertices(0), vertices(3), vertices(7)), randomColor), // Front-Left
       Path(Seq(vertices(0), vertices(1), vertices(5), vertices(4)), randomColor), // Top
-      Path(Seq(vertices(7), vertices(6), vertices(2), vertices(3)), randomColor) // Bottom
+      Path(Seq(vertices(7), vertices(6), vertices(2), vertices(3)), randomColor)  // Bottom
     )
   ).scale(Vec3d(0, 0, 0), Vec3d(1.5, 6.25, 1.5)).rotateZ(Vec3d(0, 0, 0), Pi * 0.5)
 
@@ -43,7 +43,7 @@ object Iso extends js.JSApp {
   val light = Vec3d(-1, 1, 0.5) * iso
 
   def main(): Unit = {
-    val (w, h) = (dom.window.innerWidth, dom.window.innerHeight)
+    var (w, h) = (dom.window.innerWidth, dom.window.innerHeight)
     val canvas = dom.document.createElement("canvas").asInstanceOf[html.Canvas]
     dom.document.body.appendChild(canvas)
     canvas.width = w.toInt
@@ -94,6 +94,14 @@ object Iso extends js.JSApp {
 
     dom.window.addEventListener("mousemove", { e: MouseEvent =>
       rotAngle = -atan2(e.pageX - w / 2, e.pageY - h / 2)
+    })
+
+    dom.window.addEventListener("resize", { e: Event =>
+      w = dom.window.innerWidth
+      h = dom.window.innerHeight
+      canvas.width = w.toInt
+      canvas.height = h.toInt
+      ctx.translate(w / 2, h / 2)
     })
   }
   def lightFace(face: Path): Color = {

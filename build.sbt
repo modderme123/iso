@@ -3,7 +3,7 @@ enablePlugins(ScalaJSPlugin)
 
 scalafmtConfig in ThisBuild := Some(file(".scalafmt.conf"))
 
-name := "Example"
+name := "Iso"
 
 scalaVersion := "2.11.8"
 
