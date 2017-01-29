@@ -1,4 +1,4 @@
-package example
+package iso
 
 case class Vec3d(x: Double, y: Double, z: Double) {
   def +(other: Vec3d): Vec3d = Vec3d(x + other.x, y + other.y, z + other.z)

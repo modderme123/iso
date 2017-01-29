@@ -1,4 +1,4 @@
-package example
+package iso
 
 case class Shape(faces: Seq[Path]) {
   def translate(amount: Vec3d): Shape = {

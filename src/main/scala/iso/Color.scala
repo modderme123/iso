@@ -1,4 +1,4 @@
-package example
+package iso
 
 case class Color(r: Int, g: Int, b: Int) {
   override def toString = s"rgb($r, $g, $b)"

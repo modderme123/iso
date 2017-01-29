@@ -1,4 +1,4 @@
-package example
+package iso
 
 import org.scalajs.dom
 import org.scalajs.dom.{html, Event, MouseEvent}

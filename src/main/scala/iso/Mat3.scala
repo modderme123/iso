@@ -1,4 +1,4 @@
-package example
+package iso
 
 case class Mat3(column1: Vec3d, column2: Vec3d, column3: Vec3d) {
   def *(other: Vec3d): Vec3d = {

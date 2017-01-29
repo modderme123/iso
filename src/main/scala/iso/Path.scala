@@ -1,4 +1,4 @@
-package example
+package iso
 
 case class Path(vertices: Seq[Vec3d], color: Color) {
   def translate(amount: Vec3d): Path = {
